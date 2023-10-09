@@ -1,23 +1,27 @@
+// create macro task
 const intervalId = setInterval(() => {
-  console.log('James');
+  // main stream
+  console.log('James'); // 1
 }, 10);
-
+// create macro task 2
 setTimeout(() => {
   const promise = new Promise((resolve) => {
-    console.log('Richard');
+    // micro task
+    console.log('Richard'); // 2
     resolve('Robert');
   });
 
   promise
       .then((value) => {
-        console.log(value);
+        // micro task
+        console.log(value); // 4
 
         setTimeout(() => {
-          console.log('Michael');
+          // macro task 3
+          console.log('Michael'); // 5
 
           clearInterval(intervalId);
         }, 10);
       });
-
-  console.log('John');
+  console.log('John'); // 3
 }, 10);
