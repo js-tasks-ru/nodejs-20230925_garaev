@@ -36,7 +36,7 @@ server.on('request', (request, response) => {
       limitedStream = new LimitSizeStream({
         limit: 1024 * 1024,
       });
-      fs.stat(filepath, function(error, stat) {
+      fs.stat(filepath, (error, stat) => {
         if (!error) {
           response.statusCode = 409;
           response.end('Файл уже создан на диске');
