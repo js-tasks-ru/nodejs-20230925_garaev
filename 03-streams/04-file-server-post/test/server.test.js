@@ -105,12 +105,12 @@ describe('streams/file-server-post', () => {
             (response) => {
               expect(
                   response.statusCode,
-                  'статус код ответа сервера 201'
+                  'статус код ответа сервера 201',
               ).to.equal(201);
 
               expect(
                   fse.existsSync(path.join(filesFolder, 'small.png')),
-                  'файл small.png должен быть на диске'
+                  'файл small.png должен быть на диске',
               ).to.be.true;
 
               done();
@@ -134,7 +134,7 @@ describe('streams/file-server-post', () => {
           setTimeout(() => {
             expect(
                 fse.existsSync(path.join(filesFolder, 'example.txt')),
-                'файл example.txt не должен оставаться на диске'
+                'файл example.txt не должен оставаться на диске',
             ).to.be.false;
 
             done();
